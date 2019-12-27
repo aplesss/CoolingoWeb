@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	type = 1;
 	process = 0;
 	index = 0;
@@ -46,6 +45,7 @@ $(document).ready(function(){
 				$('#wrap-word').empty();
 				$('#wrap-answer').empty();
 				var answers = q.answer.split(' ');
+				answers = shuffle(answers);
 				for (i = 0; i < answers.length; i++) {
 					$('#wrap-word').append("<div class='choose-word'>"+answers[i]+" </div>");
 				}
@@ -55,6 +55,7 @@ $(document).ready(function(){
 				$('#input-answer').hide();
 				$('#wrap-word').hide();
 				$('#wrap-answer').hide();
+				$('.choose-answer').removeClass('selected');
 				$('.choose-answer').show();
 				$('.question-type').text('Fill the space');
 				contents = q.content.split('; ');
@@ -70,7 +71,7 @@ $(document).ready(function(){
 				$('#wrap-answer').hide();
 				$('.wrap-choose-answer').hide();
 				$('.choose-answer').hide();
-				$('#input-answer').show();
+				$('#input-answer').empty().show();
 				$('#speaker').show();
 				$('.question-type').text('Type what your hear');
 				$('.question').empty();
@@ -149,3 +150,22 @@ $(document).ready(function(){
 		}
     });
 });
+
+function shuffle(array) {
+	var currentIndex = array.length, temporaryValue, randomIndex;
+  
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+  
+	  // Pick a remaining element...
+	  randomIndex = Math.floor(Math.random() * currentIndex);
+	  currentIndex -= 1;
+  
+	  // And swap it with the current element.
+	  temporaryValue = array[currentIndex];
+	  array[currentIndex] = array[randomIndex];
+	  array[randomIndex] = temporaryValue;
+	}
+  
+	return array;
+  }

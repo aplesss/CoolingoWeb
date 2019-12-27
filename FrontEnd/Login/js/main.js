@@ -49,7 +49,7 @@
             success: function(jsondata)
             {
                 console.log(jsondata);
-                //window.location.replace("file:///Users/hoangviet/Desktop/Login_v4/Menu/Menu.html");
+                sessionStorage.setItem("user", jsondata.USERNAME);
                 window.location.replace("../Menu/Menu.html");
                 
             },

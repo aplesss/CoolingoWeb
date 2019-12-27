@@ -89,7 +89,9 @@
 	-webkit-transition: color 0.1s;
 	transition: color 0.1s;
 }
-
+a.menuclick{
+	color: green;
+}
 .menu__link[data-submenu]::after {
 	content: '\e904';
 	font-family: 'feather';

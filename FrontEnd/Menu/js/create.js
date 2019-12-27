@@ -5,6 +5,12 @@ $(document).ready(function(){
 	var index=0;
 	const Content = Struct('index', 'type');
 	var Chude = [];
+
+	user= sessionStorage.getItem("user");
+	if(user)
+	{
+	$(".dummy-heading").text(user+"|"+"Coolingo-Member");
+	}
 	var createLevel =function(){
 		$(".content").find(".info").remove();
 		alert("AAAA");
@@ -45,7 +51,9 @@ $(document).ready(function(){
 			});
 			$(".titlemenu").each(function()
 			{	
+				$(this).children(".menu__link").remove("menuclick");
 			$(this).on("click",function(event){
+				$(this).children(".menu__link").addClass("menuclick");
 				event.stopPropagation();
 				event.stopImmediatePropagation();
 				$(".content").find(".info").remove();
