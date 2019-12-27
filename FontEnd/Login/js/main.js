@@ -55,7 +55,7 @@
             },
             error: function(error) {
                 console.log(error+"error");
-                alert("Error ");
+                alert("User or password wrong");
             } 
         });
         

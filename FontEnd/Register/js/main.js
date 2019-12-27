@@ -3,14 +3,17 @@
     var name="";
     var pass="";
     var re_pass="";
+    var format = /[!@#$%^&*()+\-=\[\]{};':"\\|, <>\/?]+/;
     $(".toggle-password").click(function() {
 
         $(this).toggleClass("zmdi-eye zmdi-eye-off");
         var input = $($(this).attr("toggle"));
         if (input.attr("type") == "password") {
-          input.attr("type", "text");
+            $("#re_password").attr("type","text");
+            input.attr("type", "text");
         } else {
           input.attr("type", "password");
+          $("#re_password").attr("type","password");
         }
       });
     $('.form-input').each(function(){
@@ -38,11 +41,22 @@
     }
     if(check)
     {
-        alert("check");
         if(pass!=re_pass)
         {
             $(".re_password").css("border","1px solid #f10606");
             alert("Error password");
+        }
+        else if(name.match(format))
+        {
+            alert("Username has special character");
+        }
+        else if(!$("#agree-term").is(":checked"))
+        {
+            alert("You need to agree term of service");
+        }
+        else if(pass.length<8)
+        {
+            alert("Your password needs loonger than 8");
         }
         else
         {
@@ -68,7 +82,7 @@
                 },
                 error: function(error) {
                     console.log(error+"error");
-                    alert("Error ");
+                    alert("Fail to create your account.");
                 } 
             });
 
