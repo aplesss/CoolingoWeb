@@ -51,8 +51,11 @@ $(document).ready(function(){
 			});
 			$(".titlemenu").each(function()
 			{	
-				$(this).children(".menu__link").remove("menuclick");
 			$(this).on("click",function(event){
+				$(".titlemenu").each(function()
+				{	
+				$(this).children(".menu__link").removeClass("menuclick");
+				});
 				$(this).children(".menu__link").addClass("menuclick");
 				event.stopPropagation();
 				event.stopImmediatePropagation();

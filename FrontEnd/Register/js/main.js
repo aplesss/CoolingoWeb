@@ -50,6 +50,10 @@
         {
             alert("Username has special character");
         }
+        else if(pass.match(format))
+        {
+            alert("Password has special character");
+        }
         else if(!$("#agree-term").is(":checked"))
         {
             alert("You need to agree term of service");
