@@ -49,6 +49,9 @@ $(document).ready(function(){
 				for (i = 0; i < answers.length; i++) {
 					$('#wrap-word').append("<div class='choose-word'>"+answers[i]+" </div>");
 				}
+				$('#wrap-answer').on('click', '.choose-word', function() {
+					$(this).appendTo($('#wrap-word'));
+				});
 				break;
 			case 2:
 				$('#speaker').hide();
@@ -75,6 +78,7 @@ $(document).ready(function(){
 				$('#speaker').show();
 				$('.question-type').text('Type what your hear');
 				$('.question').empty();
+				$('#input-answer').val("");
 				break;
 		}
 	}
